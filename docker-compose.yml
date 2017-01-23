@@ -1,0 +1,22 @@
+version: '2'
+services:
+  registration-service:
+    image: registration-service:latest
+    ports:
+      - "1234:1234"
+
+
+  service:
+    image: service:latest
+    depends_on:
+      - registration-service
+    ports:
+      - "4321:4321"
+
+  webservice:
+    image: webservice:latest
+    depends_on:
+      - registration-service
+      - service
+    ports:
+      - "1243:1243"

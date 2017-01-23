@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Welcome to Microservice!</title>
+</head>
+<body>
+    <h2>Welcome to Microservice!</h2>
+    <p>It works!</p>
+
+    <form action="#" th:action = "@{/getdata}" th:object  = "${formInput}" method="post">
+        <table>
+            <tr>
+                <td>Param</td>
+                <td><input type = "text" th:field = "*{data}"/></td>
+                <td th:if = "${#fields.hasErrors('data')}">Name Error</td>
+            </tr>
+
+            <tr>
+                <td><button type = "submit">Get data</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>
